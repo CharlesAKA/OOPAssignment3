@@ -1,3 +1,12 @@
+//Use for main menu
+int state =0;
+final int Main_menu=0;
+final int Instructions=1;
+final int Game=2;
+final int Pause=3;
+final int Continue=4;
+final int Game_over=5;
+
 //Global arraylist and variables
 ArrayList platforms;
 ArrayList fallobjects;
@@ -46,6 +55,28 @@ void setup()
   bgs[4].resize(width, height);
 }
 
+void draw()
+{
+  //Main menu choices
+  switch(state)
+  {
+  case Main_menu:
+    background(bgs[4]);
+    text("MENU:\n\n1.To see instructions press 1\n2.To play the game press 2\n3.To pause the game presss 3\n4.To continue press 4\n5.To return to main menu press 0", 10, 100);
+    break;
+  case Game:
+    background(255);
+    background.render();
+    collision();
+    displayPlatform();
+    Fallingobjects();
+    items();
+    player.update();
+    textSize(15);
+    fill(255);
+    text("Distance: " + dist, 10, 30);
+ 
+}
 //Initialising the first platforms when game starts
 void initializePlatforms()
 {
