@@ -59,4 +59,23 @@ class Player
       position.x = width;
     }
   }
+  
+  
+  void control()
+  {
+
+    if (keyPressed)
+    {
+      if (key == 'a' || key == 'A')
+      {
+        position.x -= 4;
+      }
+
+      if (key == 'd' || key == 'D')
+      {
+        position.x += 4;
+      }
+    }
+  }
+}
 }
