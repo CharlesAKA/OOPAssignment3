@@ -50,5 +50,22 @@ class Platform
       image(imgs[3], x+32, y+7, imgs[2].width+10, imgs[2].height+10);
     }
   
+    this.x +=speed;
+    if (this.x > width)
+    {
+      speed = -speed;
+    }
+    if (this.x < 0)
+    {
+      speed = speed*-1;
+    }
+  }
   
+    void Position(float x, float y)
+  {
+    this.x = x;
+    this.y = y;
+  }
+}
+
 }
