@@ -11,6 +11,7 @@ final int Game_over=5;
 ArrayList platforms;
 ArrayList fallobjects;
 ArrayList items;
+Player player;
 Background background;
 boolean hit = false;
 float currentY = 0;
@@ -25,8 +26,10 @@ void setup()
   smooth();
   background(255);
   size(500, 700);
+    player = new Player();
   background = new Background();
-  platforms = new = new ArrayList();
+  platforms = new ArrayList();
+    fallobjects = new ArrayList();
   items = new ArrayList();
   initializePlatforms();
   frameRate(30);
@@ -36,9 +39,6 @@ void setup()
 
   //set in setup to only initialise once
   imageMode(CENTER);
-
-  //load images
-
   //image of player and platform
   imgs[0] = loadImage("qwe.png");
   imgs[1] = loadImage("qwe2.png");
@@ -205,7 +205,7 @@ void displayPlatform()
     }
   }
 }
-}
+
 //INITIALIZE FALLING OBJECT
 void Fallingobjects()
 {
