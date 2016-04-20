@@ -30,6 +30,9 @@ void setup()
   items = new ArrayList();
   initializePlatforms();
   frameRate(30);
+   dist  = 0;
+  boost = 23;
+  fast =10;
 
   //set in setup to only initialise once
   imageMode(CENTER);
@@ -113,6 +116,16 @@ void draw()
   if (player.position.y > 700 || player.health <=0)
   {
     state =5;
+    player = new Player();
+    background = new Background();
+    platforms = new ArrayList();
+    fallobjects = new ArrayList();
+    items = new ArrayList();
+    initializePlatforms();
+    frameRate(30);
+    dist  = 0;
+    boost = 23;
+    fast =10;
   }
 }
 //Initialising the first platforms when game starts

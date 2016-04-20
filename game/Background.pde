@@ -5,7 +5,8 @@ class Background
   {
     next = 0;
   }
-
+  
+//changing background every specific distance reach
   void render()
   {
     if (dist > 1000 || dist < 1000 )
