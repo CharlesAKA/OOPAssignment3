@@ -1,5 +1,6 @@
 //Global arraylist and variables
 ArrayList platforms;
+ArrayList fallobjects;
 Background background;
 
 void setup()
@@ -7,6 +8,9 @@ void setup()
   smooth();
   background(255);
   size(500, 700);
+  background = new Background();
+  platforms = new ArrayList();
+  fallobjects = new ArrayList();
   frameRate(30);
   
   //set in setup to only initialise once
