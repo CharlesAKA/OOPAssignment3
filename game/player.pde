@@ -18,4 +18,45 @@ class Player
     up = 10;
     position = new PVector(width/2, height/2);
   }
+  
+   void update()
+  {
+    stroke(0);
+    fill(0);
+
+    if (!moveUp)
+    {
+      position.y += dir;
+      image(imgs[1], position.x, position.y);
+    }
+
+    if (moveUp)
+    {
+
+      player.floating ++;
+      position.y -= up;
+      image(imgs[0], position.x, position.y);
+    }
+
+    fill(255);
+    text("Health: " + health, 10, 60);
+    println("ball y"+position.y);
+    println(moveUp);
+    println(floating);
+    control();
+
+    if (position.y > height)
+    {
+      position.y = height/2;
+      health--;
+    }
+    if (position.x > width)
+    {
+      position.x = 15;
+    }
+    if (position.x < 15)
+    {
+      position.x = width;
+    }
+  }
 }
