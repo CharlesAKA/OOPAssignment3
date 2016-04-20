@@ -30,13 +30,13 @@ void setup()
   items = new ArrayList();
   initializePlatforms();
   frameRate(30);
-  
+
   //set in setup to only initialise once
   imageMode(CENTER);
- 
- //load images
-  
-   //image of player and platform
+
+  //load images
+
+  //image of player and platform
   imgs[0] = loadImage("qwe.png");
   imgs[1] = loadImage("qwe2.png");
   imgs[2] = loadImage("grass.png");
@@ -75,7 +75,45 @@ void draw()
     textSize(15);
     fill(255);
     text("Distance: " + dist, 10, 30);
- 
+    break;
+  case Instructions:
+    background(bgs[4]);
+    text("INSTRUCTIONS:\n\n1.Use the 'A' and 'D' keys to move left and right\n2.The objective of the game is to avoid the obstacles\n and try and get to the next level", 10, 100);
+    break;
+  case Pause:
+    text("GAME PAUSED!!Press 4 to continue\bSCORE: " + dist, width/2 - 200, height/2 + 20);
+    break;
+  case Continue:
+
+    break;
+  case Game_over:
+    text("GAME OVER!!   Press 2 to play again\nSCORE: " + dist, width/2 - 150, height/2 + 20);
+    break;
+  }
+  if (key == '0')
+  {
+    state =0;
+  }
+  if (key == '1')
+  {
+    state =1;
+  }
+  if (key == '2')
+  {
+    state =2;
+  }
+  if (key == '3')
+  {
+    state =3;
+  }
+  if (key == '4')
+  {
+    state =2;
+  }
+  if (player.position.y > 700 || player.health <=0)
+  {
+    state =5;
+  }
 }
 //Initialising the first platforms when game starts
 void initializePlatforms()
@@ -115,7 +153,7 @@ void displayPlatform()
       Item item = (Item) items.get(i);
       item.y += fast;
     }
-    
+
     //creating and removing platforms
     for (int i = 0; i < platforms.size(); i++)
     {
@@ -166,7 +204,7 @@ void Fallingobjects()
     f.position( random(50, 450), 0 );
     fallobjects.add(f);
   }
- 
+
   //creating, removing and display falling objects
   for (int i = 0; i < fallobjects.size(); i++)
   {
@@ -207,7 +245,7 @@ void items()
     item.Position(p.x + p.Pwidth/4, p.y - p.Pheight/2, p.speed);
     items.add(item);
   }
-  
+
   //display and removing item 
   for (int i = 0; i < items.size(); i++)
   {
