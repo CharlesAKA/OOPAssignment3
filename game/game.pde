@@ -11,6 +11,7 @@ void setup()
   background = new Background();
   platforms = new ArrayList();
   fallobjects = new ArrayList();
+  initializePlatforms();
   frameRate(30);
   
   //set in setup to only initialise once
@@ -116,4 +117,43 @@ void displayPlatform()
     }
   }
 }
+}
+//INITIALIZE FALLING OBJECT
+void Fallingobjects()
+{
+
+  //initialize every 1.5s and when dist = 1000
+  if (frameCount % 45 == 0 && dist >= 1000) 
+  {
+    FallingObjects f = new FallingObjects();
+    f.position( random(50, 450), 0 );
+    fallobjects.add(f);
+  }
+ 
+  //creating, removing and display falling objects
+  for (int i = 0; i < fallobjects.size(); i++)
+  {
+    FallingObjects fo = (FallingObjects) fallobjects.get(i);
+    fo.render();
+
+    if (player.moveUp && player.position.y <= height/2)
+    {
+      fo.y += fast;
+    }
+
+    if (fo.y >= 750)
+    {
+      fallobjects.remove(fo);
+    }
+
+    //collision for player and fallobjects
+    if (player.position.x + 30 >= fo.x &&
+      player.position.x  <= (fo.x + fo.size) &&
+      player.position.y + 30 >= fo.y &&
+      player.position.y  <= (fo.y +fo.size))
+    {
+      fallobjects.remove(fo);
+      player.health--;
+    }
+  }
 }
