@@ -1,6 +1,8 @@
 //Global arraylist and variables
 ArrayList platforms;
 ArrayList fallobjects;
+ArrayList items;
+Player player;
 Background background;
 
 void setup()
@@ -11,6 +13,7 @@ void setup()
   background = new Background();
   platforms = new ArrayList();
   fallobjects = new ArrayList();
+  items = new ArrayList();
   initializePlatforms();
   frameRate(30);
   
