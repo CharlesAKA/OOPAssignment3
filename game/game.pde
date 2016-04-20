@@ -2,8 +2,9 @@
 ArrayList platforms;
 ArrayList fallobjects;
 ArrayList items;
-Player player;
 Background background;
+PImage[] imgs = new PImage[5];
+PImage[] bgs = new PImage[5];
 
 void setup()
 {
@@ -21,8 +22,6 @@ void setup()
   imageMode(CENTER);
  
  //load images
-  PImage[] imgs = new PImage[5];
-  PImage[] bgs = new PImage[5]; 
   
    //image of player and platform
   imgs[0] = loadImage("qwe.png");
@@ -158,5 +157,20 @@ void Fallingobjects()
       fallobjects.remove(fo);
       player.health--;
     }
+  }
+}
+
+void items()
+{
+  //create a item every 5s 
+  if (dist >= 3000 )
+  {
+    int r;
+    r=(int)random(0, platforms.size());
+    Platform p = (Platform) platforms.get(r);
+    Item item = new Item();
+    item.Position(p.x + p.Pwidth/4, p.y - p.Pheight/2, p.speed);
+    items.add(item);
+
   }
 }
