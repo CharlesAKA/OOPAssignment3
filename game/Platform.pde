@@ -32,4 +32,23 @@ class Platform
     speed = spd;
     next = 0;
   }
+  
+   //creates grass platform and cloud platform when specific distance reach 
+  void update()
+  {
+    fill(Pcolor);
+    rect(x, y, Pwidth, Pheight, Pradius );
+
+    if (dist > 4000 || dist < 4000 )
+    {
+      image(imgs[2], x+32, y+7, imgs[2].width+10, imgs[2].height+10);
+      next = 1;
+    }
+
+    if (dist > 4000 && next == 1)
+    {
+      image(imgs[3], x+32, y+7, imgs[2].width+10, imgs[2].height+10);
+    }
+  
+  
 }
