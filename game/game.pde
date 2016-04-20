@@ -1,3 +1,6 @@
+//Global arraylist and variables
+ArrayList platforms;
+
 void setup()
 {
   smooth();
@@ -29,4 +32,15 @@ void setup()
   bgs[2].resize(width, height);
   bgs[3].resize(width, height);
   bgs[4].resize(width, height);
+}
+
+//Initialising the first platforms when game starts
+void initializePlatforms()
+{
+  for (int i = 0; i < 24; i+=2 )
+  {
+    Platform platform = new Platform();
+    platform.Position( random(0, 450), i * 30);
+    platforms.add(platform);
+  }
 }
