@@ -21,4 +21,15 @@ class Platform
     speed = 0;
     next = 0;
   }
+  
+  Platform(int spd)
+  {
+    dir = -5;
+    Pradius = 5;
+    Pwidth = 60;
+    Pheight = 20;
+    Pcolor = color(47, 120, 64);
+    speed = spd;
+    next = 0;
+  }
 }
