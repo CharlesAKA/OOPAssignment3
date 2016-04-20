@@ -21,22 +21,23 @@ int dist; //distance equals score
 int boost; //make player float longer
 int fast; //use for player to go faster
 
+//Initialise of variables
 void setup()
 {
   smooth();
   background(255);
   size(500, 700);
-    player = new Player();
+  player = new Player();
   background = new Background();
   platforms = new ArrayList();
-    fallobjects = new ArrayList();
+  fallobjects = new ArrayList();
   items = new ArrayList();
   initializePlatforms();
   frameRate(30);
-   dist  = 0;
+  dist  = 0;
   boost = 23;
   fast =10;
-
+ 
   //set in setup to only initialise once
   imageMode(CENTER);
   //image of player and platform
@@ -57,6 +58,7 @@ void setup()
   bgs[3].resize(width, height);
   bgs[4].resize(width, height);
 }
+
 
 void draw()
 {
@@ -128,6 +130,7 @@ void draw()
     fast =10;
   }
 }
+
 //Initialising the first platforms when game starts
 void initializePlatforms()
 {
@@ -138,8 +141,6 @@ void initializePlatforms()
     platforms.add(platform);
   }
 }
-
-
 
 //display platforms
 void displayPlatform()
@@ -166,7 +167,7 @@ void displayPlatform()
       Item item = (Item) items.get(i);
       item.y += fast;
     }
-
+    
     //creating and removing platforms
     for (int i = 0; i < platforms.size(); i++)
     {
@@ -217,7 +218,7 @@ void Fallingobjects()
     f.position( random(50, 450), 0 );
     fallobjects.add(f);
   }
-
+ 
   //creating, removing and display falling objects
   for (int i = 0; i < fallobjects.size(); i++)
   {
@@ -258,7 +259,7 @@ void items()
     item.Position(p.x + p.Pwidth/4, p.y - p.Pheight/2, p.speed);
     items.add(item);
   }
-
+  
   //display and removing item 
   for (int i = 0; i < items.size(); i++)
   {

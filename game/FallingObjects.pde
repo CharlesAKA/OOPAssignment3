@@ -13,6 +13,7 @@ class FallingObjects
     size = (int)random(15,30);
     c = color(random(0,255),random(0,255),random(0,255));
   }
+  
   void render()
   {
     fill(c);
@@ -25,5 +26,4 @@ class FallingObjects
     this.x = x;
     this.y = y;
   }
-
 }
