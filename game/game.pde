@@ -3,8 +3,13 @@ ArrayList platforms;
 ArrayList fallobjects;
 ArrayList items;
 Background background;
+boolean hit = false;
+float currentY = 0;
 PImage[] imgs = new PImage[5];
 PImage[] bgs = new PImage[5];
+int dist; //distance equals score
+int boost; //make player float longer
+int fast; //use for player to go faster
 
 void setup()
 {
@@ -12,8 +17,7 @@ void setup()
   background(255);
   size(500, 700);
   background = new Background();
-  platforms = new ArrayList();
-  fallobjects = new ArrayList();
+  platforms = new = new ArrayList();
   items = new ArrayList();
   initializePlatforms();
   frameRate(30);
@@ -156,6 +160,65 @@ void Fallingobjects()
     {
       fallobjects.remove(fo);
       player.health--;
+    }
+  }
+}
+
+void items()
+{
+  //create a item every 5s 
+  if (frameCount % 150 == 0 )
+  {
+    int r;
+    r=(int)random(0, platforms.size());
+    Platform p = (Platform) platforms.get(r);
+    Item item = new Item();
+    item.Position(p.x + p.Pwidth/4, p.y - p.Pheight/2, p.speed);
+    items.add(item);
+  }
+  
+  //display and removing item 
+  for (int i = 0; i < items.size(); i++)
+  {
+    Item item = (Item) items.get(i);
+    item.render();
+
+    if ( item.y >= 750 )
+    {
+      items.remove(i);
+    }
+
+    //collision for player and item
+    if ( player.position.x > item.x && player.position.x < item.x + item.Cwidth && player.moveUp == false)
+    {
+      if ( player.position.y + player.radius > item.y && player.position.y + player.radius < item.y + item.Cheight )
+      {
+        boost = 50;
+        fast = 15;
+        player.up = 20;
+      }
+    }
+  }
+}
+
+//collission for player and platform
+void collision()
+{
+  println(currentY);
+  for ( int i = 0; i < platforms.size(); i++)
+  {
+    Platform p = (Platform) platforms.get(i);
+    p.update();
+
+    //detects top platform
+    if ( player.position.x > p.x && player.position.x < p.x + p.Pwidth && player.moveUp == false)
+    {
+      if ( player.position.y + player.radius > p.y && player.position.y + player.radius < p.y + p.Pheight )
+      {
+        player.moveUp = true;
+        p.Pcolor = 255;
+        currentY = p.y;
+      }
     }
   }
 }
