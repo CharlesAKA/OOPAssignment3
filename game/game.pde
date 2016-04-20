@@ -1,3 +1,13 @@
+
+//Use for main menu
+int state =0;
+final int Main_menu=0;
+final int Instructions=1;
+final int Game=2;
+final int Pause=3;
+final int Continue=4;
+final int Game_over=5;
+
 //Global arraylist and variables
 ArrayList platforms;
 ArrayList fallobjects;
