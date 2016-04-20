@@ -21,7 +21,7 @@ class Platform
     speed = 0;
     next = 0;
   }
-  
+
   Platform(int spd)
   {
     dir = -5;
@@ -32,8 +32,8 @@ class Platform
     speed = spd;
     next = 0;
   }
-  
-   //creates grass platform and cloud platform when specific distance reach 
+
+  //creates grass platform and cloud platform when specific distance reach 
   void update()
   {
     fill(Pcolor);
@@ -49,7 +49,7 @@ class Platform
     {
       image(imgs[3], x+32, y+7, imgs[2].width+10, imgs[2].height+10);
     }
-  
+
     this.x +=speed;
     if (this.x > width)
     {
@@ -60,12 +60,10 @@ class Platform
       speed = speed*-1;
     }
   }
-  
-    void Position(float x, float y)
+
+  void Position(float x, float y)
   {
     this.x = x;
     this.y = y;
   }
-}
-
 }

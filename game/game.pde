@@ -42,5 +42,48 @@ void initializePlatforms()
     Platform platform = new Platform();
     platform.Position( random(0, 450), i * 30);
     platforms.add(platform);
-  }
+  } 
 }
+
+void displayPlatform()
+{
+      //creating and removing platforms
+    for (int i = 0; i < platforms.size(); i++)
+    {
+
+      dist++;
+      Platform p = (Platform) platforms.get(i);
+      p.update();
+      p.y += fast;
+
+      if (p.y >= 750)
+      {
+        platforms.remove(p);
+
+        int r, speed;
+        r = (int)random(0, 2);
+
+        if (dist < 500)
+        {
+          r = 0;
+        }
+
+        if (r == 0)
+        {
+          Platform platform = new Platform();
+          platform.Position( random(0, 450), i * 30);
+          platforms.add(platform);
+        }
+        if (r == 1 && dist >= 500)
+        {
+          speed = (int) random(0, 3);
+          Platform platform = new Platform(speed);
+          platform.Position( random(0, 450), i * 30);
+          platforms.add(platform);
+        }
+      }
+    }
+  } 
+}
+
+
