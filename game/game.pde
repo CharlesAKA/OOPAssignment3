@@ -42,12 +42,38 @@ void initializePlatforms()
     Platform platform = new Platform();
     platform.Position( random(0, 450), i * 30);
     platforms.add(platform);
-  } 
+  }
 }
 
+
+
+//display platforms
 void displayPlatform()
 {
-      //creating and removing platforms
+  //calculations when to start the platform to move
+  //creation for the illusion of player moving up
+  if (player.position.y <= height/2)
+  { 
+    player.position.y = height/2;
+  }
+  if (player.floating == boost)
+  {
+    player.floating = 0;
+    player.moveUp = false;
+    boost = 23;
+    fast = 10;
+    player.up = 10;
+  }
+
+  if (player.moveUp && player.position.y <= height/2)
+  {
+    for (int i = 0; i < items.size(); i++)
+    {
+      Item item = (Item) items.get(i);
+      item.y += fast;
+    }
+    
+    //creating and removing platforms
     for (int i = 0; i < platforms.size(); i++)
     {
 
@@ -83,7 +109,8 @@ void displayPlatform()
         }
       }
     }
-  } 
+  }
+}
 }
 
 

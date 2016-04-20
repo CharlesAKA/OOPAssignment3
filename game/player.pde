@@ -7,7 +7,6 @@ class Player
   int floating;
   int health;
   int up;
-  
   Player()
   {
     dir = 5;
@@ -18,8 +17,8 @@ class Player
     up = 10;
     position = new PVector(width/2, height/2);
   }
-  
-   void update()
+
+  void update()
   {
     stroke(0);
     fill(0);
@@ -59,8 +58,7 @@ class Player
       position.x = width;
     }
   }
-  
-  
+
   void control()
   {
 
@@ -77,5 +75,4 @@ class Player
       }
     }
   }
-}
 }
