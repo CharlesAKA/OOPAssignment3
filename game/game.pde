@@ -1,5 +1,6 @@
 //Global arraylist and variables
 ArrayList platforms;
+Background background;
 
 void setup()
 {
@@ -112,5 +113,3 @@ void displayPlatform()
   }
 }
 }
-
-
